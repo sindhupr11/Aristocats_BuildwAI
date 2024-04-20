@@ -66,11 +66,18 @@ export default function Dashboard() {
   }
 
     return (
-    <>
-    <LargeText value={"Hi "+ user.displayName}/>
-        
-    <SmallText value={data}/>
+      <>
+    <nav className='flex flex-row justify-between px-8 py-4 bg-slate-800'>
+    
+    <div className='flex flex-row mx-4'>
+    <img src={user.photoURL} alt="Profile" className='w-12 h-12 rounded-full mr-2' /> 
+      <h2 className='text-xl text-white my-auto '>
+      Hey, {user.displayName}
+    </h2>
+    </div>   
     <SignOutButton/>
+    </nav>
+    <Feed/>
     </>
   )
   
