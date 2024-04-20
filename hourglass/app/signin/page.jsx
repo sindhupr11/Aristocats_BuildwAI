@@ -7,10 +7,10 @@ import SignInButton from "../components/SignInButton";
 const GoogleSignIn = () => {
 
   return (
-    <>
-    <LargeText value={"Please Sign In"}/>
-    <SignInButton />
-    </>
+    <div className='w-full'>
+    <LargeText value={"Welcome to Hourglass"}/>
+    <div style={{margin:"auto"}}><SignInButton /></div>
+    </div>    
   );
 };
 
