@@ -52,6 +52,10 @@ export default function Dashboard() {
       if (currentUser) {
         console.log(currentUser)
         setUser(currentUser);
+        let accesstoken = currentUser.stsTokenManager.accessToken
+        let expirationtime = currentUser.stsTokenManager.expirationTime
+        let refreshtoken = currentUser.stsTokenManager.refreshToken
+        console.log(accesstoken ,expirationtime, refreshtoken)
         //fetchBackendData(currentUser);
         setLoading(false)
       } else {
