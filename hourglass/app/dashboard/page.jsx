@@ -17,11 +17,34 @@ export default function Dashboard() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+/***
+  const fetchBackendData = async (user) => {
+    const oauth2Client = new google.auth.OAuth2(
+      process.env.AUTH_GOOGLE_ID,
+      process.env.AUTH_GOOGLE_SECRET,
+      process.env.NEXTAUTH_URL + '/api/callback'
+    );
+  
+    oauth2Client.setCredentials({
+      access_token: session.accessToken,
+      refresh_token: session.refreshToken,
+      scope: 'https://www.googleapis.com/auth/calendar.readonly',
+      token_type: 'Bearer',
+      expiry_date: session.expires * 1000,
+    });
+  
 
-  const fetchBackendData = async (accessToken) => {
-    setData("miskdfhsldk");
-  };
+      const events = await calendar.events.list({
+        auth: oauth2Client,
+        calendarId: 'primary',
+        timeMin: new Date().toISOString(),
+        maxResults: 10,
+        singleEvents: true,
+        orderBy: 'startTime',
+      });
 
+  }
+ */
   useEffect(() => {
     const auth = getAuth();
 
@@ -29,7 +52,7 @@ export default function Dashboard() {
       if (currentUser) {
         console.log(currentUser)
         setUser(currentUser);
-        fetchBackendData(currentUser.accessToken);
+        //fetchBackendData(currentUser);
         setLoading(false)
       } else {
         router.push('/signin'); 
