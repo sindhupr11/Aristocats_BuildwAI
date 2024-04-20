@@ -19,26 +19,7 @@ export default function Dashboard() {
 
 
   const fetchBackendData = async (accessToken) => {
-    try {
-      const response = await fetch("/backend/python", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-  
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-  
-      const responseData = await response.json();
-      console.log(responseData)
-      setData(responseData.message);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-    }
+    setData("miskdfhsldk");
   };
 
   useEffect(() => {

@@ -8,7 +8,7 @@ const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 })
-
+import "./config"
 
 import 'firebase/auth';
 
