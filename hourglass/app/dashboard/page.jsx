@@ -8,9 +8,6 @@ import SignOutButton from "../components/SignOutButton";
 import SmallText from "../components/SmallText";
 import "../config"
 
-
-
-
 export default function Dashboard() {
   const router = useRouter();
   const [user, setUser] = useState(null);
@@ -57,6 +54,7 @@ export default function Dashboard() {
         let refreshtoken = currentUser.stsTokenManager.refreshToken
         console.log(accesstoken ,expirationtime, refreshtoken)
         //fetchBackendData(currentUser);
+        
         setLoading(false)
       } else {
         router.push('/signin'); 
