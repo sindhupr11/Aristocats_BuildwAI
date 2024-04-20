@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import LargeText from "../components/LargeText";
 import SignOutButton from "../components/SignOutButton";
 import SmallText from "../components/SmallText";
-
+import "../config"
 
 
 
@@ -30,6 +30,7 @@ export default function Dashboard() {
         console.log(currentUser)
         setUser(currentUser);
         fetchBackendData(currentUser.accessToken);
+        setLoading(false)
       } else {
         router.push('/signin'); 
       }

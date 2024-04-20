@@ -1,7 +1,7 @@
 "use client"
 import 'firebase/auth';
 import LargeText from "../components/LargeText";
-
+import "../config"
 import SignInButton from "../components/SignInButton";
 
 const GoogleSignIn = () => {

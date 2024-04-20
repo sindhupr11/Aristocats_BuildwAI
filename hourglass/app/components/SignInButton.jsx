@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
-
+import "../config"
 const provider = new GoogleAuthProvider();
 
 const SignInButton = () => {
