@@ -17,34 +17,25 @@ export default function Dashboard() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-/***
   const fetchBackendData = async (user) => {
-    const oauth2Client = new google.auth.OAuth2(
-      process.env.AUTH_GOOGLE_ID,
-      process.env.AUTH_GOOGLE_SECRET,
-      process.env.NEXTAUTH_URL + '/api/callback'
-    );
-  
-    oauth2Client.setCredentials({
-      access_token: session.accessToken,
-      refresh_token: session.refreshToken,
-      scope: 'https://www.googleapis.com/auth/calendar.readonly',
-      token_type: 'Bearer',
-      expiry_date: session.expires * 1000,
-    });
-  
-
-      const events = await calendar.events.list({
-        auth: oauth2Client,
-        calendarId: 'primary',
-        timeMin: new Date().toISOString(),
-        maxResults: 10,
-        singleEvents: true,
-        orderBy: 'startTime',
+    try {
+      const response = await fetch(`/calendarfile?accessToken=${user.stsTokenManager.accessToken}&refreshToken=${user.stsTokenManager.refreshToken}&expirationTime=${user.stsTokenManager.expirationTime}`, {
+        method: 'GET',
       });
 
+      if (response.ok) {
+        const events = await response.json();
+        console.log(events)
+        setData(events);
+      } else {
+        console.error('Failed to fetch calendar data');
+      }
+    } catch (error) {
+      console.error('Error fetching calendar data:', error);
+    }
+
   }
- */
+
   useEffect(() => {
     const auth = getAuth();
 
@@ -57,6 +48,7 @@ export default function Dashboard() {
         let refreshtoken = currentUser.stsTokenManager.refreshToken
         console.log(accesstoken ,expirationtime, refreshtoken)
         //fetchBackendData(currentUser);
+        fetchBackendData(currentUser);
         setLoading(false)
       } else {
         router.push('/signin'); 
